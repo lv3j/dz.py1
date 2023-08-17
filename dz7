@@ -1,0 +1,15 @@
+1)from django.apps import AppConfig
+
+
+class AppAdvertismentConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'app_advertisment'
+    verbose_name = "advertisment"
+
+
+2)class Advertisement(models.Model):
+    title = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+
+    def __str__(self):
+        return f"Advertisement(id={self.id}, title={self.title}, price={self.price})"
