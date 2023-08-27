@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import Advertisment
-from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.contrib.staticfiles import static
 
 
   @admin.display(description='Картинка')
