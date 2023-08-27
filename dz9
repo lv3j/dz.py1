@@ -1,0 +1,12 @@
+from django.contrib import admin
+from .models import Advertisment
+from django.contrib.staticfiles.templatetags.staticfiles import static
+
+
+  @admin.display(description='Картинка')
+    def image_thumbnail(self, obj):
+        if obj.image:
+            return format('<img src="{}" width="50" height="50" />', obj.image.url)
+        else:
+            default_image_url = static('img/adv.png')
+            return format('<img scr="{}" width="50" height="50" />', default_image_url)
