@@ -1,0 +1,19 @@
+from django import forms
+from .models import YourModel
+from .forms import YourModelForm
+
+
+class YourModelForm(forms.ModelForm):
+    class Meta:
+        model = YourModel
+        fields = '__all__'
+        widgets = {
+            'fields_name':forms.TextInput(attrs={'class':'your-css-class'})
+        }
+        def create_ad(request):
+            if request.method == 'POST':form = YourModelForm(request.POST)
+            if form.is_valid():
+                form.save()
+            else:
+                form = YourModelForm()
+                return render(request,'your_template',{'form':form})
